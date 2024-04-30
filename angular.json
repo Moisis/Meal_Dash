@@ -99,6 +99,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "meal-dash:build:production",
+              "serveTarget": "meal-dash:serve:production"
+            },
+            "development": {
+              "buildTarget": "meal-dash:build:development",
+              "serveTarget": "meal-dash:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
