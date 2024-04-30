@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "meal-dash-baaed": {
+      "hosting": {
+        "meal-dash": [
+          "meal-dash-baaed"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "meal-dash-baaed"
+  }
+}
