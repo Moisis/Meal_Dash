@@ -1,0 +1,17 @@
+button{
+    width: 130;
+    height: 60;
+    color: white;
+    background-color: #BD1E1E;
+}
+
+button:hover{
+    
+    color: white;
+    background-color: #961717;
+}
+
+button:active
+{
+    background-color: #73ff00;
+}
