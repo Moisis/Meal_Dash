@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, importProvidersFrom } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,24 +9,49 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
-import { UserHomeMidComponent } from './features/users/user-home-mid/user-home-mid.component'
+import { UserHomeMidComponent } from './features/users/user-home-mid/user-home-mid.component';
+import { UserloginComponent } from './userlogin/userlogin.component';
+import { UserregisterComponent } from './userregister/userregister.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDF0whZg2MCLgnLJ1eTCrqIryGyN9DtKEs",
+  authDomain: "meal-dash-baaed.firebaseapp.com",
+  projectId: "meal-dash-baaed",
+  storageBucket: "meal-dash-baaed.appspot.com",
+  messagingSenderId: "18721526332",
+  appId: "1:18721526332:web:0857e0aa78d9d5d3dfa939"
+};
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeNavBarComponent,
     UserHomeComponent,
-    UserHomeMidComponent
+    UserHomeMidComponent,
+    UserloginComponent,
+    UserregisterComponent
   ],
+
+
   imports: [
     BrowserModule,
     AppRoutingModule,
-    provideFirebaseApp(() => initializeApp({"projectId":"meal-dash-baaed","appId":"1:18721526332:web:0857e0aa78d9d5d3dfa939","storageBucket":"meal-dash-baaed.appspot.com","apiKey":"AIzaSyDF0whZg2MCLgnLJ1eTCrqIryGyN9DtKEs","authDomain":"meal-dash-baaed.firebaseapp.com","messagingSenderId":"18721526332"})),
+    FormsModule,
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideDatabase(() => getDatabase())
   ],
-  providers: [],
+  providers: [importProvidersFrom([
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideAuth(() => getAuth()) // For User Authentication Service
+  ])],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

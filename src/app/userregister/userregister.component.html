@@ -1,0 +1,27 @@
+<div class = "form-container">
+
+    <div>
+        <img src="assets/pizza_icon.svg" alt="Logo" width="100px" height="100px">
+        <p>Meal Dash</p>
+      </div>
+    
+      <div class="input-container">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <label>Display Name: </label>
+        <input type="text" formControlName="displayName">
+        <br/>
+        <br/>
+        <label>Email: </label>
+        <input type="text" formControlName="Email">
+        <br/>
+        <br/>
+        <label>Password: </label>
+        <input type="password" formControlName="Password">
+        <br/>
+        <br/>
+        <button class="registerButton">Register</button>
+        <br/>
+        <br/>
+    </form>
+    </div>
+</div>

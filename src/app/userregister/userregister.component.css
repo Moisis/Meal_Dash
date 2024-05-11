@@ -1,0 +1,23 @@
+
+
+input{
+    border-radius: 4px;
+    width: 200px;
+    height: 30px;
+    color: grey;
+}
+
+.registerButton{
+    width: 130px;
+    height:60px;
+    background-color: #BD1E1E;
+    border-radius: 5px;
+    color: white;
+    border:white;
+}
+
+.label{
+    padding:20px;
+    margin:20px;
+}
+
