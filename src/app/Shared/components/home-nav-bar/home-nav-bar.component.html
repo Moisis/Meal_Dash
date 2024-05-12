@@ -8,17 +8,22 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link fw-bold" href="#">HOME</a>
+          <a routerLink="/home" class="nav-link fw-bold" href="#">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fw-bold" href="#">ABOUT</a>
+          <a routerLink="/about" class="nav-link fw-bold" href="#">ABOUT</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link fw-bold" href="#">OFFERS</a>
+        <li *ngIf="this.authService.loggedinUserSignal() == null; else elseBlock">
+          <a routerLink="/register" class="nav-link nav-bar-title fw-bold">REGISTER</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link nav-bar-title fw-bold" href="#">REGISTER</a>
-        </li>
+
+        <ng-template #elseBlock>
+            <a routerLink="/profile" class="nav-link nav-bar-title fw-bold">PROFILE</a>
+            <a (click)="logout()" routerLink="/home" class="nav-link nav-bar-title fw-bold">LOGOUT</a>
+        </ng-template>
+        
+     
+
       </ul>
       <ul class="navbar-nav  mb-50 mb-lg-0">
       <li class="nav-item m-md-3">

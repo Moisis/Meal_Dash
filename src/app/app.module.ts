@@ -15,6 +15,8 @@ import { UserregisterComponent } from './userregister/userregister.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RestaurantWizardComponent } from './restaurant-wizard/restaurant-wizard.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FooterComponent } from './footer/footer.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -38,7 +40,9 @@ const firebaseConfig = {
     UserloginComponent,
     UserregisterComponent,
     RestaurantWizardComponent,
-    DashboardComponent
+    DashboardComponent,
+    FooterComponent,
+    AboutComponent
   ],
 
 

@@ -4,12 +4,15 @@ import { UserHomeComponent } from './features/users/user-home/user-home.componen
 import { UserregisterComponent } from './userregister/userregister.component';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { RestaurantWizardComponent } from './restaurant-wizard/restaurant-wizard.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
-  { path: 'home', component: UserHomeComponent }, // Assuming HomeComponent is your home page
-  { path: 'register', component: UserregisterComponent }, // Route for the registration
-  { path: 'login', component: UserloginComponent }, // Route for the registration
-  { path: 'rw', component: RestaurantWizardComponent }, // Route for the registration
+  { path: 'home', component: UserHomeComponent }, // Home page
+  { path: 'register', component: UserregisterComponent }, // Route for the Registration page
+  { path: 'login', component: UserloginComponent }, // Route for the login page
+  { path: 'rw', component: RestaurantWizardComponent }, // Route for the restaurant wizard page
+  { path: 'about', component: AboutComponent }, // Route for the About page
+  
 ];
 
 @NgModule({

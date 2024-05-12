@@ -30,7 +30,5 @@ export class UserregisterComponent {
       () => console.log('User Registered Successfully')
     )
    }
-
-
 }
 
