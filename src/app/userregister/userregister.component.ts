@@ -20,12 +20,13 @@ export class UserregisterComponent {
     displayName:['',Validators.required],
     Email: ['',Validators.required],
     Password:['',Validators.required],
+    userType:['',Validators.required]
   })
   
   onSubmit(): void{
 
     const rawForm = this.form.getRawValue()
-    this.authService.register(rawForm.Email,rawForm.displayName,rawForm.Password).subscribe(
+    this.authService.register(rawForm.Email,rawForm.displayName,rawForm.Password,Number(rawForm.userType)).subscribe(
       () => console.log('User Registered Successfully')
     )
    }

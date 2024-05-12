@@ -11,7 +11,7 @@ export class AuthService{
     firebaseAuth = inject(Auth)
 
     // Firebase doesnt returns observables.
-    register(email:string, username:string,password:string): Observable<void> {
+    register(email:string, username:string,password:string,userType:Number): Observable<void> {
         const promise = createUserWithEmailAndPassword(
             this.firebaseAuth,
             email,
