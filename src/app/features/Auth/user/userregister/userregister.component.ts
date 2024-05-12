@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../../../auth.service';
 
 @Component({
   selector: 'app-userregister',
@@ -16,7 +16,7 @@ export class UserregisterComponent {
   authService = inject(AuthService)
 
   fb = inject(FormBuilder)
-  
+
   form = this.fb.nonNullable.group({
 
     displayName:[null,Validators.required],
@@ -24,7 +24,7 @@ export class UserregisterComponent {
     Password:[null,Validators.required],
     userType:[null,Validators.required]
   })
-  
+
   onSubmit(): void{
 
     const rawForm = this.form.getRawValue()

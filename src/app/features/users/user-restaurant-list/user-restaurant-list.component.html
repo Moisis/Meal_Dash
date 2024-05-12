@@ -1,0 +1,90 @@
+<app-home-nav-bar></app-home-nav-bar>
+<div class="res-list-body">
+  <div class="filters-and-search">
+    <div class="search-bar">
+      <input type="text" placeholder="Search for restaurants" />
+    </div>
+    <div class="filter-by">
+      <div class="filter-title">Filter By</div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search for restaurants" />
+      </div>
+      <div class="filter-options">
+        <div class="filter-option">
+          <input
+            type="checkbox"
+            id="filter-option-1"
+            name="filter-option-1"
+            value="filter-option-1"
+          />
+          <label for="filter-option-1">Filter Option 1</label>
+        </div>
+        <div class="filter-option">
+          <input
+            type="checkbox"
+            id="filter-option-2"
+            name="filter-option-2"
+            value="filter-option-2"
+          />
+          <label for="filter-option-2">Filter Option 2</label>
+        </div>
+        <div class="filter-option">
+          <input
+            type="checkbox"
+            id="filter-option-3"
+            name="filter-option-3"
+            value="filter-option-3"
+          />
+          <label for="filter-option-3">Filter Option 3</label>
+        </div>
+      </div>
+    </div>
+    <div class="filter-resturant-types">
+      <div class="filter-title">Restaurant Types</div>
+      <div class="filter-options">
+        <div class="filter-option">
+          <input
+            type="checkbox"
+            id="restaurant-type-1"
+            name="restaurant-type-1"
+            value="restaurant-type-1"
+          />
+          <label for="restaurant-type-1">Restaurant Type 1</label>
+        </div>
+        <div class="filter-option">
+          <input
+            type="checkbox"
+            id="restaurant-type-2"
+            name="restaurant-type-2"
+            value="restaurant-type-2"
+          />
+          <label for="restaurant-type-2">Restaurant Type 2</label>
+        </div>
+        <div class="filter-option">
+          <input
+            type="checkbox"
+            id="restaurant-type-3"
+            name="restaurant-type-3"
+            value="restaurant-type-3"
+          />
+          <label for="restaurant-type-3">Restaurant Type 3</label>
+        </div>
+      </div>
+    </div>
+    <button class="filter-btn">APPLY</button>
+  </div>
+  <div class="listings">
+    <div class="card" *ngFor="let item of items">
+      <img src="image.jpg" alt="Image" class="image" />
+      <div class="content">
+        <div class="title">{{ item[0] }}</div>
+        <div class="description">{{ item[1] }}</div>
+        <div class="info">
+          <div class="delivery">Delivery: {{ item[2] }}</div>
+          <div class="price">Price: {{ item[3] }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
