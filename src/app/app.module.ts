@@ -13,6 +13,7 @@ import { UserHomeMidComponent } from './features/users/user-home-mid/user-home-m
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { UserregisterComponent } from './userregister/userregister.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -34,7 +35,8 @@ const firebaseConfig = {
     UserHomeComponent,
     UserHomeMidComponent,
     UserloginComponent,
-    UserregisterComponent
+    UserregisterComponent,
+    DashboardComponent
   ],
 
 
