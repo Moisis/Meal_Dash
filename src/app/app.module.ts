@@ -10,13 +10,14 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { UserHomeMidComponent } from './features/users/user-home-mid/user-home-mid.component';
-import { UserloginComponent } from './userlogin/userlogin.component';
-import { UserregisterComponent } from './userregister/userregister.component'
+import { UserloginComponent } from './features/Auth/user/userlogin/userlogin.component';
+import { UserregisterComponent } from './features/Auth/user/userregister/userregister.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RestaurantWizardComponent } from './restaurant-wizard/restaurant-wizard.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { FooterComponent } from './footer/footer.component';
+import { RestaurantWizardComponent } from './features/restaurant_manager/restaurant-wizard/restaurant-wizard.component';
+import { DashboardComponent } from './features/restaurant_manager/dashboard/dashboard.component';
+import { FooterComponent } from './Shared/components/footer/footer.component';
 import { AboutComponent } from './about/about.component';
+import { UserRestaurantListComponent } from './features/users/user-restaurant-list/user-restaurant-list.component';
 
 
 
@@ -42,7 +43,8 @@ const firebaseConfig = {
     RestaurantWizardComponent,
     DashboardComponent,
     FooterComponent,
-    AboutComponent
+    AboutComponent,
+    UserRestaurantListComponent
   ],
 
 
