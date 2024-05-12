@@ -17,6 +17,10 @@ import { RestaurantWizardComponent } from './restaurant-wizard/restaurant-wizard
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileComponent } from './profile/profile.component';
+
 
 
 
@@ -42,7 +46,8 @@ const firebaseConfig = {
     RestaurantWizardComponent,
     DashboardComponent,
     FooterComponent,
-    AboutComponent
+    AboutComponent,
+    ProfileComponent,
   ],
 
 
@@ -54,11 +59,14 @@ const firebaseConfig = {
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    provideDatabase(() => getDatabase())
+    provideDatabase(() => getDatabase()),
+    ToastrModule.forRoot(), // For Toasts
+    BrowserAnimationsModule, // Also For Toasts
   ],
   providers: [importProvidersFrom([
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
-    provideAuth(() => getAuth()) // For User Authentication Service
+    provideAuth(() => getAuth()), // For User Authentication Service
+    provideFirestore(() => getFirestore()),
   ])],
   bootstrap: [AppComponent]
 })

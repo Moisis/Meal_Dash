@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-userregister',
@@ -9,6 +10,7 @@ import { AuthService } from '../auth.service';
 })
 export class UserregisterComponent {
 
+   toastr =  inject(ToastrService);
 
 
   authService = inject(AuthService)
@@ -17,18 +19,37 @@ export class UserregisterComponent {
   
   form = this.fb.nonNullable.group({
 
-    displayName:['',Validators.required],
-    Email: ['',Validators.required],
-    Password:['',Validators.required],
-    userType:['',Validators.required]
+    displayName:[null,Validators.required],
+    Email: [null,Validators.required],
+    Password:[null,Validators.required],
+    userType:[null,Validators.required]
   })
   
   onSubmit(): void{
 
     const rawForm = this.form.getRawValue()
-    this.authService.register(rawForm.Email,rawForm.displayName,rawForm.Password,Number(rawForm.userType)).subscribe(
-      () => console.log('User Registered Successfully')
-    )
+    if(rawForm.Email == null || rawForm.Password == null || rawForm.userType == null || rawForm.displayName == null)
+      {
+        this.toastr.error("Please fill out all the required fields.")
+        return
+      }
+      else{
+        this.authService.register(rawForm.Email!,rawForm.Password!,Number(rawForm.userType),rawForm.displayName!).subscribe(
+          () => {
+            console.log('Registartion Successfull')
+            this.toastr.success("Registration Successful.")
+          },
+          (error) => {
+            if(error.code == 'auth/invalid-email' )
+            this.toastr.warning('Please enter a valid E-mail address')
+          else if (error.code == 'auth/weak-password')
+            this.toastr.warning('Please enter a minimum of 6 characters for your password')
+          else if (error.code == 'auth/email-already-in-use')
+            this.toastr.warning('Email Already Registered.')
+          }
+        )
+      }
+    
    }
 }
 

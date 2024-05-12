@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import 'ngx-toastr/toastr';
+
 :root {
   --primary-color: #3498db;  /* A blue shade */
   --secondary-color: #2ecc71; /* A green shade */
@@ -11,6 +13,7 @@
   --not-so-pure-white : #F2EDED;
   --nice-red : #BD1E1E ;
 }
+
 
 body{
   margin: 0;

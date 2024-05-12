@@ -8,7 +8,7 @@
       <h1 id="emss" class="h3 mb-3 fw-normal">Registration</h1>
 
       <div class="form-floating">
-        <input type="text" class="form-control" id="floatingDisplayName" placeholder="Display Name"  formControlName="displayName">
+        <input type="text" class="form-control" id="floatingDisplayName" placeholder="Display Name" formControlName="displayName">
         <label for="floatingDisplayName">Display Name</label>
       </div>
       <br/>
@@ -26,7 +26,7 @@
       <br/>
 
       <div class="form-floating">
-        <select type="text" class="form-control" id="userType" placeholder="User Type" formControlName="userType">
+        <select class="form-control" id="userType" placeholder="User Type" formControlName="userType" >
           <option value="0">Customer</option>
           <option value="1">Owner</option>
         </select>
@@ -34,20 +34,8 @@
       </div>
 
       <br/>
-      <button type="button" class="btn btn-primary w-100 py-2" id="liveToastBtn">Register</button>
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <img src="..." class="rounded me-2" alt="...">
-      <strong class="me-auto">Bootstrap</strong>
-      <small>11 mins ago</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      Hello, world! This is a toast message.
-    </div>
-  </div>
-</div>
+      <button class="btn btn-primary w-100 py-2" >Register</button>
+      
     </form>
   </main>
 </div>
