@@ -38,7 +38,7 @@ export class UserwizardComponent {
 
     const rawForm = this.form.getRawValue()
 
-    const fullUrl = `https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Users/userID/${this.firebaseAuth.currentUser?.uid}.json`
+    const fullUrl = `https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Users/${this.firebaseAuth.currentUser?.uid}.json`
 
 
     this.httpClient.patch(fullUrl,rawForm).subscribe(responseData => {

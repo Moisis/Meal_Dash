@@ -14,6 +14,7 @@ import { HttpClient } from "@angular/common/http"
 export class AuthService{
 
 
+
     constructor(private httpClient: HttpClient){}
     firebaseAuth = inject(Auth)
     firestore = inject(Firestore)
@@ -24,7 +25,6 @@ export class AuthService{
     // variable.
     loggedinUserSignal = signal<UserInterface | null | undefined>(undefined)
 
-    fullUrl = "https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Users/userID.json"
 
 
     // Firebase doesnt returns observables.
@@ -33,31 +33,25 @@ export class AuthService{
             this.firebaseAuth,
             email,
             password).then(async response => {
-
+        const fullUrl = `https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Users/${this.firebaseAuth.currentUser?.uid}.json`
+        
         const rawForm = {
             'email':this.firebaseAuth.currentUser?.email,
             'display_name':displayName,
             'user_id':this.firebaseAuth.currentUser?.uid,
-            'userType':userType
+            'userType':userType,
+            'registrationDate':this.firebaseAuth.currentUser?.metadata.creationTime
         }
-        await this.httpClient.post(this.fullUrl, rawForm).subscribe(
-            responseData => {}
+        await this.httpClient.put(fullUrl, rawForm).subscribe(
+            responseData => {
+
+            }
 
         );})
 
             return from(promise)
     }
-
-
-
-    async getData(uid:string): Promise<DocumentData | undefined>
-    {
-        const userDoc = doc(this.firestore,'Users',uid)
-        const userSnapshot = await getDoc(userDoc)
-        const data = userSnapshot.data()
-        return data
-    }
-
+   
     login(email:string,password:string): Observable<void> {
 
         const promise = signInWithEmailAndPassword(this.firebaseAuth,email,password).then
