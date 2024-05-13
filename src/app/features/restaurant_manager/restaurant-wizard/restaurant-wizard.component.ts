@@ -2,6 +2,9 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../auth.service';
 import { RestaurantFirebaseService } from '../../../restaurantFirebase.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-restaurant-wizard',
@@ -10,9 +13,12 @@ import { RestaurantFirebaseService } from '../../../restaurantFirebase.service';
 })
 export class RestaurantWizardComponent {
 
+  
+  constructor(private _router: Router){}
+
 
   RestaurantFirebaseService = inject(RestaurantFirebaseService)
-  //authService = inject(AuthService)
+  toastr =  inject(ToastrService);
 
   fb = inject(FormBuilder)
 
@@ -34,11 +40,20 @@ export class RestaurantWizardComponent {
       rawForm.restaurant_Logo,
       rawForm.restaurant_Tags,
       rawForm.restaurant_DeliveryFee,
-      rawForm.restaurant_DeliveryCities
-      ,rawForm.restaurant_CookingTime,
+      rawForm.restaurant_DeliveryCities,
+      rawForm.restaurant_CookingTime,
     )
 
-    console.log('Restaurant should be added now.')
+    this.toastr.success("Registration Successful.")
+    this.toastr.info("Logged In!","Welcome")
+
+
+    this._router.navigate(['/home'])
+
+
+
+
+
 
 
    }

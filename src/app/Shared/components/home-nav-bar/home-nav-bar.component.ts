@@ -1,5 +1,6 @@
 import {Component, inject, OnInit} from '@angular/core';
 import { AuthService } from '../../../auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home-nav-bar',
@@ -8,6 +9,7 @@ import { AuthService } from '../../../auth.service';
 })
 export class HomeNavBarComponent implements  OnInit{
 
+  toastr =  inject(ToastrService);
 
   authService = inject(AuthService)
 
@@ -33,6 +35,8 @@ export class HomeNavBarComponent implements  OnInit{
 
   logout():void{
     this.authService.logout();
+    this.toastr.info("Logged Out.","Bye!")
+
   }
 
 }

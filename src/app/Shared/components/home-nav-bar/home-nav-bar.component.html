@@ -13,16 +13,17 @@
           <a routerLink="/about" class="nav-link fw-bold fs-5" href="#">ABOUT</a>
         </li>
         <li *ngIf="this.authService.loggedinUserSignal() == null; else elseBlock">
-          <a routerLink="/register" class="nav-link nav-bar-title fs-5 fw-bold">REGISTER</a>
+          <a routerLink="/register" id="registerButton" class="nav-link fw-bold fs-5">REGISTER</a>
+        </li>
+        <li *ngIf="this.authService.loggedinUserSignal() == null; ">
+          <a routerLink="/login" id="loginButton" class="nav-link fw-bold fs-5">LOGIN</a>
         </li>
 
-        <li *ngIf="this.authService.loggedinUserSignal() == null; else elseBlock">
-          <a routerLink="/login" class="nav-link nav-bar-title fs-5 fw-bold">LOGIN</a>
-        </li>
+    
 
         <ng-template #elseBlock>
-            <a routerLink="/profile" class="nav-link nav-bar-title fw-bold">PROFILE</a>
-            <a (click)="logout()" routerLink="/home" class="nav-link nav-bar-title fw-bold">LOGOUT</a>
+            <a routerLink="/profile" id="profileButton" class="nav-link fw-bold fs-5">PROFILE</a>
+            <a (click)="logout()" routerLink="/home" id="logoutButton" class="nav-link fw-bold fs-5">LOGOUT</a>
         </ng-template>
 
 

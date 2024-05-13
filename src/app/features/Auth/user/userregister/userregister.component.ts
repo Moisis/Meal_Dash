@@ -31,6 +31,11 @@ export class UserregisterComponent {
 
   fullUrl = "https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Users/userID.json"
 
+  gotoLogin(){
+    this._router.navigate(['/login'])
+    
+  }
+
   onSubmit(): void{
 
     const rawForm = this.form.getRawValue()
@@ -45,8 +50,14 @@ export class UserregisterComponent {
       this.authService.register(rawForm.Email!,rawForm.Password!,Number(rawForm.userType),rawForm.displayName!).subscribe(
           () => {
             console.log('Registartion Part 1 -- Successfull')
+            if(rawForm.userType == 0)
+              {
             this._router.navigate(['/uw'])
-            
+              }
+              else{
+            this._router.navigate(['/rw'])
+                
+              }
           },
           (error) => {
             if(error.code == 'auth/invalid-email' )

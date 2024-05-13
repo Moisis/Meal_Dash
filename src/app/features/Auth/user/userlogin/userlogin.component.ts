@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../../auth.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -10,6 +12,10 @@ import { AuthService } from '../../../../auth.service';
 })
 export class UserloginComponent {
 
+  constructor(private _router: Router){}
+
+
+  toastr =  inject(ToastrService);
     fb = inject(FormBuilder)
 
     authService = inject(AuthService)
@@ -21,10 +27,19 @@ export class UserloginComponent {
       Password:['',Validators.required]
     })
 
+    gotoRegister(){
+      this._router.navigate(['/register'])
+      
+    }
+
      onSubmit(): void{
       const rawForm = this.form.getRawValue()
       this.authService.login(rawForm.Email,rawForm.Password).subscribe(
-        () => console.log('User Logged In Successfully')
+        () => {
+        this.toastr.info("Logged In!","Welcome")
+      this._router.navigate(['/home'])
+        
+        }
       )
      }
     }

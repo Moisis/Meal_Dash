@@ -9,3 +9,15 @@
     color: white;
     background-color: #961717;
 }
+
+
+#underlinedRegister{
+    font-weight: bold;
+    color: #BD1E1E;
+}
+
+
+#DONThave{
+    background-color: transparent !important;;
+    border: 0;
+}

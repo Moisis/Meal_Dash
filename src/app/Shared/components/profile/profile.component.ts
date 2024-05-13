@@ -21,6 +21,7 @@ export class ProfileComponent {
   authService = inject(AuthService)
 
   userData: any = {}
+  restaurantData: any = {}
 
   displayName:String = ''
   email:String = ''
@@ -32,15 +33,14 @@ export class ProfileComponent {
 
   ngOnInit() : void {
 
-    const fullUrl = `https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Users/${this.firebaseAuth.currentUser?.uid}.json`
 
     
     this.authService.loggedinUser.subscribe( async user => {
       // Someone is logged in
       if (user)
         {
-          const fullUrl = `https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Users/${this.firebaseAuth.currentUser?.uid}.json`
-          await this.httpClient.get(fullUrl).subscribe(responseData =>
+          const userURL = `https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Users/${this.firebaseAuth.currentUser?.uid}.json`
+          await this.httpClient.get(userURL).subscribe(async responseData =>
             {
                this.userData = responseData 
 
@@ -62,7 +62,15 @@ export class ProfileComponent {
                     {
                           this.userRole = 'Restaurant Owner'
                           this.infoTitle = 'Restaurant Name'
-                          this.infoLabel = this.userData!['restaurant_name']
+                          const restaurantsURL = `https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Restaurants/${this.firebaseAuth.currentUser?.uid}.json`
+                          await this.httpClient.get(restaurantsURL).subscribe(responseData => {
+                            this.restaurantData = responseData
+                            this.infoLabel = this.restaurantData!['restaurant_Name']
+                            this.deliveryCity = this.restaurantData!['delivery_Cities']
+                          })
+                          
+
+                          
                     }
 
 

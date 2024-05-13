@@ -45,9 +45,8 @@ export class UserwizardComponent {
        console.log('DATA ADDED')
     })
     {
-      console.log('Data added successfully!');
       this.toastr.success("Registration Successful.")
-      this.toastr.show('Logged In!')
+      this.toastr.info("Logged In!","Welcome")
 
       this._router.navigate(['/home'])
 

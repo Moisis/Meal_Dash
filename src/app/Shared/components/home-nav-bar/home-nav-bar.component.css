@@ -1,6 +1,6 @@
-.nav-bar-title{
+#profileButton,#logoutButton,#registerButton,#loginButton{
   color: var(--nice-red);
-  font-size: 35px;
+  font-weight: bold !important;
 
 }
 

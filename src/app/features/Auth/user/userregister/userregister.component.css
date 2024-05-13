@@ -17,3 +17,13 @@
     color:#BD1E1E;
     font-weight: bold;
 }
+
+#underlinedLogin{
+    font-weight: bold;
+    color: #BD1E1E;
+}
+
+#alrhave{
+    background-color: transparent !important;;
+    border: 0;
+}
