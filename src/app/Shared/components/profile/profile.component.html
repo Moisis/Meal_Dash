@@ -8,8 +8,8 @@
                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
                 <img src="assets/profile_icon.svg"
                   alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-                <h5>{{displayName}}</h5>
-                <p>Restaurant Owner</p>
+                <h5>{{this.displayName}}</h5>
+                <p>{{userRole}}</p>
                 <i class="far fa-edit mb-5"></i>
               </div>
               <div class="col-md-8">
@@ -19,15 +19,19 @@
                   <div class="row pt-1">
                     <div class="col-6 mb-3">
                       <h6>Email</h6>
-                      <p class="text-muted">sss</p>
+                      <p class="text-muted">{{email}}</p>
                     </div>
                     <div class="col-6 mb-3">
-                      <h6>Display Name</h6>
-                      <p class="text-muted">Omar</p>
+                      <h6>Full Name</h6>
+                      <p class="text-muted">{{displayName}}</p>
                     </div>
                     <div class="col-6 mb-3">
-                        <h6>Delivery Address</h6>
-                        <p class="text-muted">Customer</p>
+                        <h6>Delivery City</h6>
+                        <p class="text-muted">{{deliveryCity}}</p>
+                      </div>
+                      <div class="col-6 mb-3">
+                        <h6>{{infoTitle}}</h6>
+                        <p class="text-muted">{{infoLabel}}</p>
                       </div>
                   </div>
                   <h6>Registration Details</h6>

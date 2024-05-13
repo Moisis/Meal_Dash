@@ -1,0 +1,42 @@
+
+
+#cancel{
+    background-color: rgb(240, 237, 237) !important;
+    color: #BD1E1E;
+    font-weight: bold;
+}
+
+#cancel:hover{
+    background-color: rgb(192, 186, 186) !important;
+    color: #BD1E1E;
+    font-weight: bold;
+}
+
+button{
+    width: 130;
+    height: 60;
+    color: white;
+    background-color: #BD1E1E;
+    border: white;
+    font-weight: bold;
+
+}
+
+button:hover{
+    
+    color: white;
+    background-color: #961717;
+}
+
+#emss {
+    text-align: center;
+    color:#BD1E1E;
+    font-weight: bold;
+}
+
+.logoImg{
+
+display: flex;
+align-content: center;
+
+}

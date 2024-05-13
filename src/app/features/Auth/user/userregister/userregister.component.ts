@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../../auth.service';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-userregister',
@@ -10,10 +12,12 @@ import { AuthService } from '../../../../auth.service';
 })
 export class UserregisterComponent {
 
+  constructor(private _router: Router,private httpClient: HttpClient){}
+
    toastr =  inject(ToastrService);
+   authService = inject(AuthService);
 
 
-  authService = inject(AuthService)
 
   fb = inject(FormBuilder)
 
@@ -25,6 +29,8 @@ export class UserregisterComponent {
     userType:[null,Validators.required]
   })
 
+  fullUrl = "https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Users/userID.json"
+
   onSubmit(): void{
 
     const rawForm = this.form.getRawValue()
@@ -34,10 +40,13 @@ export class UserregisterComponent {
         return
       }
       else{
-        this.authService.register(rawForm.Email!,rawForm.Password!,Number(rawForm.userType),rawForm.displayName!).subscribe(
+
+
+      this.authService.register(rawForm.Email!,rawForm.Password!,Number(rawForm.userType),rawForm.displayName!).subscribe(
           () => {
-            console.log('Registartion Successfull')
-            this.toastr.success("Registration Successful.")
+            console.log('Registartion Part 1 -- Successfull')
+            this._router.navigate(['/uw'])
+            
           },
           (error) => {
             if(error.code == 'auth/invalid-email' )
@@ -50,6 +59,6 @@ export class UserregisterComponent {
         )
       }
     
-   }
-}
+     }
+  }
 

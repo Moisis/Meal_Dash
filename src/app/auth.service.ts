@@ -3,7 +3,8 @@ import { Auth, createUserWithEmailAndPassword, updateProfile, user } from "@angu
 import { signInWithEmailAndPassword, signOut } from "firebase/auth"
 import { Observable, from } from "rxjs"
 import { UserInterface } from "./user.interface"
-import { Firestore, addDoc, collection, doc, getDoc } from "@angular/fire/firestore"
+import { DocumentData, Firestore, addDoc, collection, doc, getDoc, setDoc } from "@angular/fire/firestore"
+import { HttpClient } from "@angular/common/http"
 
 
 @Injectable({
@@ -12,6 +13,8 @@ import { Firestore, addDoc, collection, doc, getDoc } from "@angular/fire/firest
 
 export class AuthService{
 
+
+    constructor(private httpClient: HttpClient){}
     firebaseAuth = inject(Auth)
     firestore = inject(Firestore)
     usersCollection = collection(this.firestore,'Users')
@@ -21,35 +24,38 @@ export class AuthService{
     // variable.
     loggedinUserSignal = signal<UserInterface | null | undefined>(undefined)
 
+    fullUrl = "https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Users/userID.json"
+
+
     // Firebase doesnt returns observables.
     register(email:string, password:string,userType:Number,displayName:String): Observable<void> {
         const promise = createUserWithEmailAndPassword(
             this.firebaseAuth,
             email,
-            password).then(response => {
-                this.saveData(userType,displayName)
-            })
-            return from(promise)
-    }
+            password).then(async response => {
 
-    saveData(userType:Number,displayName:String){
-        const promise = addDoc(this.usersCollection,{
+        const rawForm = {
             'email':this.firebaseAuth.currentUser?.email,
             'display_name':displayName,
             'user_id':this.firebaseAuth.currentUser?.uid,
             'userType':userType
-        },).then(
-           // (response) => response.id = this.firebaseAuth.currentUser?.uid
-        );
-        return from(promise); 
+        }
+        await this.httpClient.post(this.fullUrl, rawForm).subscribe(
+            responseData => {}
 
+        );})
+
+            return from(promise)
     }
 
-    async getData(uid:String)
+
+
+    async getData(uid:string): Promise<DocumentData | undefined>
     {
-        const userDoc = doc(this.firestore,'Users',"b4LIENFJFmLjaF5vnrhv")
+        const userDoc = doc(this.firestore,'Users',uid)
         const userSnapshot = await getDoc(userDoc)
-        console.log(userSnapshot.data())
+        const data = userSnapshot.data()
+        return data
     }
 
     login(email:string,password:string): Observable<void> {

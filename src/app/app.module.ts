@@ -19,9 +19,11 @@ import { FooterComponent } from './Shared/components/footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './Shared/components/profile/profile.component';
 
 import { UserRestaurantListComponent } from './features/users/user-restaurant-list/user-restaurant-list.component';
+import { UserwizardComponent } from './features/Auth/user/userwizard/userwizard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -49,7 +51,8 @@ const firebaseConfig = {
     FooterComponent,
     AboutComponent,
     ProfileComponent,
-    UserRestaurantListComponent
+    UserRestaurantListComponent,
+    UserwizardComponent
   ],
 
 
@@ -64,6 +67,7 @@ const firebaseConfig = {
     provideDatabase(() => getDatabase()),
     ToastrModule.forRoot(), // For Toasts
     BrowserAnimationsModule, // Also For Toasts
+    HttpClientModule
   ],
   providers: [importProvidersFrom([
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
