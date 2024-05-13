@@ -1,10 +1,9 @@
+
+<header>
 <nav class="navbar navbar-expand-lg navbar-light nav-bar ">
   <div class="container-fluid">
     <img src="assets/Pizza_Logo.png" height="60">
     <a class="navbar-brand fw-bold" href="#">Meal  <span class="nav-bar-title">Dash</span></a>
-<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--      <span class="navbar-toggler-icon"></span>-->
-<!--    </button>-->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -17,12 +16,16 @@
           <a routerLink="/register" class="nav-link nav-bar-title fw-bold">REGISTER</a>
         </li>
 
+        <li *ngIf="this.authService.loggedinUserSignal() == null; else elseBlock">
+          <a routerLink="/login" class="nav-link nav-bar-title fw-bold">LOGIN</a>
+        </li>
+
         <ng-template #elseBlock>
             <a routerLink="/profile" class="nav-link nav-bar-title fw-bold">PROFILE</a>
             <a (click)="logout()" routerLink="/home" class="nav-link nav-bar-title fw-bold">LOGOUT</a>
         </ng-template>
-        
-     
+
+
 
       </ul>
       <ul class="navbar-nav  mb-50 mb-lg-0">
@@ -33,3 +36,4 @@
     </div>
   </div>
 </nav>
+</header>

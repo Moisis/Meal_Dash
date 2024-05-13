@@ -1,4 +1,4 @@
-button{
+.login_btn{
     width: 130;
     height: 60;
     color: white;
@@ -6,8 +6,8 @@ button{
     border: white;
 }
 
-button:hover{
-    
+.login_btn:hover{
+
     color: white;
     background-color: #961717;
 }

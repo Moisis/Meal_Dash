@@ -12,7 +12,7 @@
     font-weight: bold;
 }
 
-button{
+.btn_add{
     width: 130;
     height: 60;
     color: white;
@@ -22,8 +22,8 @@ button{
 
 }
 
-button:hover{
-    
+.btn_add:hover{
+
     color: white;
     background-color: #961717;
 }
