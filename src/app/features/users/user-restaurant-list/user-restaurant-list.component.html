@@ -1,90 +1,133 @@
 <app-home-nav-bar></app-home-nav-bar>
+
+
 <div class="res-list-body">
   <div class="filters-and-search">
-    <div class="search-bar">
-      <input type="text" placeholder="Search for restaurants" />
-    </div>
-    <div class="filter-by">
-      <div class="filter-title">Filter By</div>
-      <div class="search-bar">
-        <input type="text" placeholder="Search for restaurants" />
+
+    <div class="input-group flex-nowrap">
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping"><i class="bi bi-search"></i></span>
+        <input type="text" class="form-control" placeholder="Search For Restaurants" aria-label="Username" aria-describedby="addon-wrapping">
       </div>
+    </div>
+
+
+    <div class="filter-by mt-4 justify-content-evenly ">
+      <div class="filter-title fs-3 fw-bold">Filter By</div>
+
       <div class="filter-options">
-        <div class="filter-option">
-          <input
-            type="checkbox"
-            id="filter-option-1"
-            name="filter-option-1"
-            value="filter-option-1"
-          />
-          <label for="filter-option-1">Filter Option 1</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+          <label class="form-check-label" for="flexCheckDefault">
+            Filter by  1
+          </label>
         </div>
-        <div class="filter-option">
-          <input
-            type="checkbox"
-            id="filter-option-2"
-            name="filter-option-2"
-            value="filter-option-2"
-          />
-          <label for="filter-option-2">Filter Option 2</label>
-        </div>
-        <div class="filter-option">
-          <input
-            type="checkbox"
-            id="filter-option-3"
-            name="filter-option-3"
-            value="filter-option-3"
-          />
-          <label for="filter-option-3">Filter Option 3</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" >
+          <label class="form-check-label" for="flexCheckChecked">
+            Filter  by 2
+          </label>
         </div>
       </div>
     </div>
+
+
     <div class="filter-resturant-types">
-      <div class="filter-title">Restaurant Types</div>
+      <div class="filter-title fs-3 fw-bold">Restaurant Types</div>
       <div class="filter-options">
-        <div class="filter-option">
-          <input
-            type="checkbox"
-            id="restaurant-type-1"
-            name="restaurant-type-1"
-            value="restaurant-type-1"
-          />
-          <label for="restaurant-type-1">Restaurant Type 1</label>
+
+
+<!--        <div class="filter-option">-->
+<!--          <input-->
+<!--            type="checkbox"-->
+<!--            id="restaurant-type-1"-->
+<!--            name="restaurant-type-1"-->
+<!--            value="restaurant-type-1"-->
+<!--          />-->
+<!--          <label for="restaurant-type-1">Restaurant Type 1</label>-->
+<!--        </div>-->
+<!--        <div class="filter-option">-->
+<!--          <input-->
+<!--            type="checkbox"-->
+<!--            id="restaurant-type-2"-->
+<!--            name="restaurant-type-2"-->
+<!--            value="restaurant-type-2"-->
+<!--          />-->
+<!--          <label for="restaurant-type-2">Restaurant Type 2</label>-->
+<!--        </div>-->
+<!--        <div class="filter-option">-->
+<!--          <input-->
+<!--            type="checkbox"-->
+<!--            id="restaurant-type-3"-->
+<!--            name="restaurant-type-3"-->
+<!--            value="restaurant-type-3"-->
+<!--          />-->
+<!--          <label for="restaurant-type-3">Restaurant Type 3</label>-->
+<!--        </div>-->
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Restaurant Type 1
+          </label>
         </div>
-        <div class="filter-option">
-          <input
-            type="checkbox"
-            id="restaurant-type-2"
-            name="restaurant-type-2"
-            value="restaurant-type-2"
-          />
-          <label for="restaurant-type-2">Restaurant Type 2</label>
-        </div>
-        <div class="filter-option">
-          <input
-            type="checkbox"
-            id="restaurant-type-3"
-            name="restaurant-type-3"
-            value="restaurant-type-3"
-          />
-          <label for="restaurant-type-3">Restaurant Type 3</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+          <label class="form-check-label" for="flexCheckChecked">
+            Restaurant Type 2
+          </label>
         </div>
       </div>
     </div>
-    <button class="filter-btn">APPLY</button>
+
+
+
+    <button class="btn btn-danger rounded-pill px-4 text-uppercase  w-12 h-12 fs-6 mt-5">APPLY</button>
   </div>
-  <div class="listings">
-    <div class="card" *ngFor="let item of items">
-      <img src="image.jpg" alt="Image" class="image" />
-      <div class="content">
-        <div class="title">{{ item[0] }}</div>
-        <div class="description">{{ item[1] }}</div>
-        <div class="info">
-          <div class="delivery">Delivery: {{ item[2] }}</div>
-          <div class="price">Price: {{ item[3] }}</div>
+
+
+
+<!--  <div class="listings">-->
+<!--    <div class="card" *ngFor="let item of items">-->
+<!--      <img src="assets/egypt.png" alt="Image" class="image"  width="100px" />-->
+<!--      <div class="content">-->
+<!--        <div class="title">{{ item[0] }}</div>-->
+<!--        <div class="description">{{ item[1] }}</div>-->
+<!--        <div class="info">-->
+<!--          <div class="delivery">Delivery: {{ item[2] }}</div>-->
+<!--          <div class="price">Price: {{ item[3] }}</div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+
+  <div class="listings ms-5">
+  <div class="card mb-3" style="max-width: 700px;" *ngFor="let item of items">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="assets/egypt.png" class="img-fluid rounded-start" alt="res_logo"  width="100px">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ items[0] }}</h5>
+          <div class="description">{{ items[1] }}</div>
+          <div class="info">
+            <div class="delivery">Delivery: {{ items[2] }}</div>
+            <div class="price">Price: {{ items[3] }}</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  </div>
+
+
+
+
+
 </div>
+
+
+
+
 <app-footer></app-footer>
