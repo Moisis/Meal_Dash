@@ -1,8 +1,10 @@
 .nav-bar-title{
   color: var(--nice-red);
+  font-size: 35px;
 
 }
 
 .nav-bar{
   background-color: var(--not-so-pure-white);
+  height: 100px;
 }

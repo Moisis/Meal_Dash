@@ -1,42 +1,32 @@
 .user-home-mid{
   display: flex;
-  justify-content: space-between; /* Ensures the elements are on opposite sides */
+  align-items: center;
   padding: 20px;
   background-color: var(--not-so-pure-white);
-
-
-}
-.user-home-mid-text{
-  margin: 50px 10px;
-  font-size: 80px;
-  text-transform: uppercase;
-  flex : 1 ;
-
 }
 
-.user-home-image {
-  flex: 1; /* This makes the image take available space */
-  text-align: right; /* Ensures the image aligns to the right */
-}
 
-.user-home-image img {
-  max-width: 100%; /* Ensures the image doesn't overflow */
-  height: auto; /* Maintains aspect ratio */
-}
-
-.user-home-mid-btn {
-  margin-top: 10px; /* Adds some space between the text and button */
-  margin-left: 10px; /* Adds some space between the text and button */
-  text-transform: uppercase;
-  width: 150px;
-  height: 50px;
-  background: var(--nice-red);
-  color: white;
-  border-radius: 10px;
-  border-color: var(--nice-red);
-}
 
 .user-home-mid-title{
   color: var(--nice-red);
 }
+
+.user-home-mid-text {
+  margin: 50px 10px;
+  font-size: 80px;
+  padding-right: 20px;
+  text-transform: uppercase;
+}
+
+.user-home-image img {
+  width: 100%; /* Adjust as needed */
+  height: auto;
+margin-right: auto
+}
+
+.user-home-mid-title {
+  font-size: 80px;
+  color: var(--nice-red);
+}
+
 

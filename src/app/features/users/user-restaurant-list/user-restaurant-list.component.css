@@ -1,10 +1,4 @@
-.filter-btn{
-    background-color: red;
-    color: white;
-    border-radius: 3px;
-    padding: 0 20px;
-    margin: 20px;
-}
+
 
 .res-list-body{
     background-color: var(--not-so-pure-white);
@@ -16,10 +10,10 @@
 
 .card {
             margin: 20px 100px;
-            background-color: var(--A-Lighter-Gray-ish);
+            background-color: var(--bs-gray-400);
             display: flex;
             align-items: center;
-            width: 400px;
+            width: 700px;
             border: 1px solid #ccc;
             border-radius: 8px;
             padding: 20px;
@@ -55,4 +49,10 @@
 
 .filters-and-search{
    margin-left: 20px;
+}
+
+.filter-options {
+  background-color: var(--background-color);
+  border-radius: 7px;
+
 }

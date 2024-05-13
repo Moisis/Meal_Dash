@@ -1,4 +1,4 @@
-button{
+.Reg_btn{
     width: 130;
     height: 60;
     color: white;
@@ -6,8 +6,8 @@ button{
     border: white;
 }
 
-button:hover{
-    
+.Reg_btn:hover{
+
     color: white;
     background-color: #961717;
 }

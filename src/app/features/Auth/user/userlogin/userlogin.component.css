@@ -1,13 +1,11 @@
-button{
-    width: 130;
-    height: 60;
+.login_btn{
     color: white;
     background-color: #BD1E1E;
     border: white;
 }
 
-button:hover{
-    
+.login_btn:hover{
+
     color: white;
     background-color: #961717;
 }

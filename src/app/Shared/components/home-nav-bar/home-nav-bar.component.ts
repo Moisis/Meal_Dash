@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import { AuthService } from '../../../auth.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { AuthService } from '../../../auth.service';
   templateUrl: './home-nav-bar.component.html',
   styleUrl: './home-nav-bar.component.css'
 })
-export class HomeNavBarComponent {
+export class HomeNavBarComponent implements  OnInit{
 
 
   authService = inject(AuthService)
@@ -34,5 +34,5 @@ export class HomeNavBarComponent {
   logout():void{
     this.authService.logout();
   }
-  
+
 }
