@@ -26,6 +26,7 @@ import { UserwizardComponent } from './features/Auth/user/userwizard/userwizard.
 import { HttpClientModule } from '@angular/common/http';
 import { RestaurantPageComponent } from './features/users/restaurant-page/restaurant-page.component';
 import { FilterPipe } from './filter.pipe';
+import { CheckoutPageComponent } from './features/users/checkout-page/checkout-page.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDF0whZg2MCLgnLJ1eTCrqIryGyN9DtKEs',
@@ -53,6 +54,7 @@ const firebaseConfig = {
     UserwizardComponent,
     RestaurantPageComponent,
     FilterPipe,
+    CheckoutPageComponent,
   ],
 
   imports: [
