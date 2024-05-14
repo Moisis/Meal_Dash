@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class RestaurantWizardComponent {
 
-  
+
   constructor(private _router: Router){}
 
 
@@ -21,7 +21,7 @@ export class RestaurantWizardComponent {
   toastr =  inject(ToastrService);
 
   fb = inject(FormBuilder)
-  
+
 
   form = this.fb.nonNullable.group({
 
@@ -51,7 +51,7 @@ export class RestaurantWizardComponent {
     this.toastr.info("Logged In!","Welcome")
 
 
-    this._router.navigate(['/home'])
+    this._router.navigate(['/rw2'])
 
 
 

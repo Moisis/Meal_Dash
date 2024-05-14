@@ -14,9 +14,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./restaurant-wizard2.component.css']
 })
 export class RestaurantWizard2Component {
-  
 
-  constructor(private _router: Router,private httpClient: HttpClient){} 
+
+  constructor(private _router: Router,private httpClient: HttpClient){}
 
 
   firebaseAuth = inject(Auth)
@@ -24,7 +24,7 @@ export class RestaurantWizard2Component {
   toastr =  inject(ToastrService);
 
   fb = inject(FormBuilder)
-  
+
 
   form = this.fb.nonNullable.group({
 
@@ -49,7 +49,7 @@ export class RestaurantWizard2Component {
 
   async onSubmit(): Promise<void>{
 
-   
+
 
     this.toastr.success("Registration Successful.")
     this.toastr.info("Logged In!","Welcome")
@@ -59,5 +59,5 @@ export class RestaurantWizard2Component {
 
 
   }
-  
+
 }

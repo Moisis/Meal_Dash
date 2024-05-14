@@ -27,7 +27,7 @@ export class RestaurantPageComponent implements OnInit {
 
 
 
-    
+
     this.restaurantID = this._activatedRoute.snapshot.paramMap.get('id') || '';
 
 
@@ -49,11 +49,11 @@ export class RestaurantPageComponent implements OnInit {
           const menuItem = this.menuCollection[key];
 
           this.items.push([
-            menuItem.itemName,
-            menuItem.itemPrice,
-            menuItem.itemDescription,
-            menuItem.itemTag,
-            menuItem.itemImage
+            menuItem.item_Name,
+            menuItem.item_Price,
+            menuItem.item_Description,
+            menuItem.item_Tags,
+            menuItem.item_Image
           ]);
 
         }
