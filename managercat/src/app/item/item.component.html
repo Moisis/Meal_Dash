@@ -1,0 +1,17 @@
+<button (click)="addItem()">Add Item</button>
+
+<div *ngIf="showTextAreas">
+  <textarea [(ngModel)]="itemName" placeholder="Enter item name"></textarea>
+  <textarea [(ngModel)]="itemPrice" placeholder="Enter item price"></textarea>
+  <textarea [(ngModel)]="itemImage" placeholder="Enter item nickname"></textarea>
+  <button (click)="addItemToDatabase()">Add</button>
+</div>
+<div class="item-list">
+  <h2>Items</h2>
+  <ul>
+    <li *ngFor="let item of filteredItems">
+      {{ item.name }}
+    </li>
+  </ul>
+</div>
+

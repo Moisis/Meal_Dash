@@ -1,0 +1,11 @@
+{
+  "hosting": [
+    {
+      "target": "managercat",
+      "source": ".",
+      "frameworksBackend": {
+        "region": "us-central1"
+      }
+    }
+  ]
+}
