@@ -10,8 +10,8 @@ import {DashboardComponent} from "./features/restaurant_manager/dashboard/dashbo
 import {UserRestaurantListComponent} from "./features/users/user-restaurant-list/user-restaurant-list.component";
 import { UserwizardComponent } from './features/Auth/user/userwizard/userwizard.component';
 import {RestaurantPageComponent} from "./features/users/restaurant-page/restaurant-page.component";
-import { CategoryComponent } from './category/category.component';
-import { RestaurantWizard2Component } from './features/restaurant_manager/restaurant-wizard2/restaurant-wizard2.component';
+import { RestaurantWizard2Component } from './restaurant-wizard2/restaurant-wizard2.component';
+
 
 const routes: Routes = [
   { path: 'home', component: UserHomeComponent }, // Home page
@@ -28,7 +28,6 @@ const routes: Routes = [
   { path: 'r_dash', component: DashboardComponent }, // Route for the restaurant dashboard
   { path: 'r_res_list', component: UserRestaurantListComponent }, // Route for the Restaurant List
   { path: 'r_res_list/:id', component: RestaurantPageComponent}, // Route for the Restaurant Page
-  { path: 'category', component: CategoryComponent}, // Route for the Restaurant Page
 
 
 

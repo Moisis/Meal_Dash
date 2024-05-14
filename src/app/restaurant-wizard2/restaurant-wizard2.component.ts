@@ -1,12 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { getDatabase, ref, push,set,get, } from 'firebase/database';
-import {CategoryComponent} from '../../../category/category.component';
 import { Inject } from '@angular/core';
 import { Auth,user } from '@angular/fire/auth';
-import { CategoryItemService } from '../../../categoryitemservice.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { RestaurantFirebaseService } from '../../../restaurantFirebase.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
