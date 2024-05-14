@@ -27,6 +27,7 @@ export class UserregisterComponent {
     Email: [null,Validators.required],
     Password:[null,Validators.required],
     userType:[null,Validators.required]
+
   })
 
   fullUrl = "https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Users/userID.json"

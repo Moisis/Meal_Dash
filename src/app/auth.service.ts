@@ -43,10 +43,8 @@ export class AuthService{
             'registrationDate':this.firebaseAuth.currentUser?.metadata.creationTime
         }
         await this.httpClient.put(fullUrl, rawForm).subscribe(
-            responseData => {
-
-            }
-
+            responseData => 
+                {}
         );})
 
             return from(promise)

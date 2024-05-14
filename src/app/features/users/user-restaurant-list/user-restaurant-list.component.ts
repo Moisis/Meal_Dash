@@ -10,28 +10,35 @@ export class UserRestaurantListComponent {
 
   constructor(private httpClient: HttpClient){}
 
-
-  restaurantCollection:any = {};
-  ngOnInit():void{
-     this.restaurantCollection =  this.getRestaurants();
-  }
-
   fullUrl = "https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Restaurants.json"
+restaurantCollection:any = {};
+  items:any = [
+  ]
 
+    async ngOnInit(): Promise<void> {
 
-  async getRestaurants(){
+      try {
 
-    await this.httpClient.get(this.fullUrl).subscribe(responseData => {
-      return responseData
-    })
+        const responseData = await this.httpClient.get(this.fullUrl).subscribe(responseData => {
+          this.restaurantCollection = responseData;
+            // Process and add restaurant details to items array
+            for (const key in responseData) {
+              if (responseData.hasOwnProperty(key)) {
+                const restaurant = this.restaurantCollection[key]
+                this.items.push([
+                  restaurant.restaurant_Name,
+                  restaurant.restaurantTags,
+                  restaurant.delivery_Fee + " EGP", // Handle potential missing property
+                  restaurant.cooking_Time + " Minutes" // Handle potential missing property
+                ]);
+              }
+            }
+        });
+  
+        
+      } catch (error) {
+        console.error('Error fetching restaurants:', error);
+        // Handle errors appropriately, e.g., display an error message to the user
+      }
+    }
   }
-
-
-
-  items = [
-    ["RestaurantName", "CuisineTags", "Delivery Fee", "Cooking Time"],
-    ["title1", "description1", "free", "100"],
-  ["title2", "desc2", "10", "150"],
-  ["title3", "desc3", "20", "200"],
-  ["title4", "desc4", "30", "250"],]
-}

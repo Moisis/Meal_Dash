@@ -21,6 +21,7 @@ export class RestaurantWizardComponent {
   toastr =  inject(ToastrService);
 
   fb = inject(FormBuilder)
+  
 
   form = this.fb.nonNullable.group({
 
