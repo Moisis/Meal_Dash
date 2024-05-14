@@ -55,6 +55,7 @@ const firebaseConfig = {
     RestaurantPageComponent,
     FilterPipe,
     CheckoutPageComponent,
+
   ],
 
   imports: [

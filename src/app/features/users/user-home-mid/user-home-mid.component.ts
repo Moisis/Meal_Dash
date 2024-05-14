@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Auth } from '@angular/fire/auth';
+import { AuthService } from '../../../auth.service';
 
 @Component({
   selector: 'app-user-home-mid',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './user-home-mid.component.css'
 })
 export class UserHomeMidComponent {
+
+  
+   authService = inject(AuthService)
 
 }

@@ -6,7 +6,13 @@
           Your Flavorful Journey Begins
           <span class="user-home-mid-title">Here!</span>
         </h1>
-        <button type="button" class="btn btn-danger rounded-pill px-4 text-uppercase  w-50 h-50 fs-3">Order Now</button>
+        <div *ngIf="this.authService.loggedinUserSignal() == null; else elseBlock">
+        <button routerLink="/register" type="button" class="btn btn-danger rounded-pill px-4 text-uppercase  w-50 h-50 fs-3">Register Now!</button>
+      </div>
+      <ng-template #elseBlock>
+        <button routerLink="/r_res_list" type="button" class="btn btn-danger rounded-pill px-4 text-uppercase  w-50 h-50 fs-3">Order Now!</button>
+
+    </ng-template>
       </div>
     </div>
     <div class="col-md-6">

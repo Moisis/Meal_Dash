@@ -29,8 +29,6 @@ export class RestaurantFirebaseService{
         {
 
     const fullUrl = `https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Restaurants/${this.firebaseAuth.currentUser?.uid}.json`
-
-
             const restaurantToCreate = {
                 restaurant_Name: restaurant_Name,restaurantLogo: restaurant_Logo,restaurantTags:restaurant_Tags,
                 delivery_Cities: restaurant_DeliveryCities,
@@ -39,13 +37,8 @@ export class RestaurantFirebaseService{
                 restaurant_id : this.firebaseAuth.currentUser?.uid, // Restaurant gets same id as owner.
                 restaurant_Description:restaurant_Description
             }
-
             await this.httpClient.patch(fullUrl,restaurantToCreate).subscribe(responseData => {
              })
-
-
-
-
     }
 
 
