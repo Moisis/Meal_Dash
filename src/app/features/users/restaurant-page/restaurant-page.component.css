@@ -1,0 +1,25 @@
+#itemlogo{
+
+    margin: 10%;
+
+}
+
+.container{
+    padding: 20px;
+}
+
+#resLogo{
+    padding:10px
+}
+
+
+
+#price{
+    font-weight: bold;
+    color:#BD1E1E
+}
+
+.description{
+    width: fit-content;
+    text-wrap:wrap;
+}

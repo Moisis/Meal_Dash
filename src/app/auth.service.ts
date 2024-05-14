@@ -5,6 +5,7 @@ import { Observable, from } from "rxjs"
 import { UserInterface } from "./user.interface"
 import { DocumentData, Firestore, addDoc, collection, doc, getDoc, setDoc } from "@angular/fire/firestore"
 import { HttpClient } from "@angular/common/http"
+import { ToastrService } from "ngx-toastr"
 
 
 @Injectable({
@@ -14,6 +15,7 @@ import { HttpClient } from "@angular/common/http"
 export class AuthService{
 
 
+    toastr =  inject(ToastrService);
 
     constructor(private httpClient: HttpClient){}
     firebaseAuth = inject(Auth)
@@ -53,7 +55,7 @@ export class AuthService{
     login(email:string,password:string): Observable<void> {
 
         const promise = signInWithEmailAndPassword(this.firebaseAuth,email,password).then
-        ( () =>{}) // Return nothing.
+        ( () =>{})
 
         return from(promise);
     }

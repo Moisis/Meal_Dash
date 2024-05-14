@@ -24,6 +24,7 @@ export class RestaurantFirebaseService{
         restaurant_DeliveryFee:String,
         restaurant_DeliveryCities:String,
         restaurant_CookingTime:String,
+        restaurant_Description:String
         ): Promise<void>
         {
 
@@ -35,7 +36,8 @@ export class RestaurantFirebaseService{
                 delivery_Cities: restaurant_DeliveryCities,
                 delivery_Fee: restaurant_DeliveryFee,
                 cooking_Time: restaurant_CookingTime,
-                restaurant_id : this.firebaseAuth.currentUser?.uid // Restaurant gets same id as owner.
+                restaurant_id : this.firebaseAuth.currentUser?.uid, // Restaurant gets same id as owner.
+                restaurant_Description:restaurant_Description
             }
 
             await this.httpClient.patch(fullUrl,restaurantToCreate).subscribe(responseData => {

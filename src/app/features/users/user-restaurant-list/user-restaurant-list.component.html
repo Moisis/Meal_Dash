@@ -15,11 +15,13 @@
           aria-describedby="addon-wrapping"
           [(ngModel)]="searchText"
         />
+        
       </div>
     </div>
 
     <div class="filter-by mt-4 justify-content-evenly">
       <div class="filter-title fs-3 fw-bold">Filter By</div>
+      <br/>
 
       <div class="filter-options">
         <div class="form-check">
@@ -35,6 +37,8 @@
             Filter by burgers
           </label>
         </div>
+        <br/>
+
         <div class="form-check">
           <input
             class="form-check-input"
@@ -72,7 +76,7 @@
       style="max-width: 700px"
       *ngFor="let item of items | filter : searchText"
     >
-      <div class="row g-0" [routerLink]="['/r_res_list/', item.restaurant_id]">
+      <div class="row g-0">
         <div class="col-md-4">
           <img
             src="assets/egypt.png"
@@ -81,7 +85,7 @@
             width="100px"
           />
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" routerLink="/r_res_list/{{item[4]}}">
           <div class="card-body">
             <h5 class="card-title">{{ item[0] }}</h5>
             <div class="description">{{ item[1] }}</div>

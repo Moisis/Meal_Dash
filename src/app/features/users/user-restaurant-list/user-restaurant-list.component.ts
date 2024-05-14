@@ -18,7 +18,7 @@ export class UserRestaurantListComponent implements OnInit {
   filterByBurgers: any;
   async ngOnInit(): Promise<void> {
     try {
-      const responseData = await this.httpClient
+     await this.httpClient
         .get(this.fullUrl)
         .subscribe((responseData) => {
           this.restaurantCollection = responseData;
@@ -30,7 +30,8 @@ export class UserRestaurantListComponent implements OnInit {
                 restaurant.restaurant_Name,
                 restaurant.restaurantTags,
                 restaurant.delivery_Fee + ' EGP', // Handle potential missing property
-                restaurant.cooking_Time + ' Minutes', // Handle potential missing property
+                restaurant.cooking_Time + ' Minute(s)', // Handle potential missing property,
+                restaurant.restaurant_id
               ]);
             }
           }
@@ -52,6 +53,8 @@ export class UserRestaurantListComponent implements OnInit {
               restaurant.restaurantTags,
               restaurant.delivery_Fee + ' EGP',
               restaurant.cooking_Time + ' Minutes',
+              restaurant.restaurant_id
+
             ]);
           }
         }
@@ -66,6 +69,8 @@ export class UserRestaurantListComponent implements OnInit {
             restaurant.restaurantTags,
             restaurant.delivery_Fee + ' EGP',
             restaurant.cooking_Time + ' Minutes',
+            restaurant.restaurant_id
+
           ]);
         }
       }
@@ -83,6 +88,8 @@ export class UserRestaurantListComponent implements OnInit {
               restaurant.restaurantTags,
               restaurant.delivery_Fee + ' EGP',
               restaurant.cooking_Time + ' Minutes',
+              restaurant.restaurant_id
+
             ]);
           }
         }
@@ -97,6 +104,8 @@ export class UserRestaurantListComponent implements OnInit {
             restaurant.restaurantTags,
             restaurant.delivery_Fee + ' EGP',
             restaurant.cooking_Time + ' Minutes',
+            restaurant.restaurant_id
+
           ]);
         }
       }

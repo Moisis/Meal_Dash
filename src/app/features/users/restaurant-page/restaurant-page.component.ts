@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {RestaurantFirebaseService} from "../../../restaurantFirebase.service";
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-restaurant-page',
@@ -10,17 +11,55 @@ import {RestaurantFirebaseService} from "../../../restaurantFirebase.service";
 export class RestaurantPageComponent implements OnInit {
 
  name = 'RestaurantPageComponent';
-  productId?: string ;
-  productDetails: any;
+  restaurantID?: string ;
 
-  constructor( private route: ActivatedRoute ,private productService: RestaurantFirebaseService ) {}
+  menuCollection:any
+  constructor( private _activatedRoute: ActivatedRoute ,private productService: RestaurantFirebaseService,private httpClient: HttpClient ) {}
+
+  restaurantDetails:any
+  items: any = [];
+
 
   ngOnInit(): void {
 
-    this.route.params.subscribe(params => {
-      this.productId = params['id'];
+
+
+
+
+
+    
+    this.restaurantID = this._activatedRoute.snapshot.paramMap.get('id') || '';
+
+
+    const restaurantURL = `https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Restaurants/${this.restaurantID}.json`
+
+    this.httpClient.get(restaurantURL).subscribe((responseData) => {
+      this.restaurantDetails = responseData;
+    })
+
+
+
+    const menuURL = `https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Menus/${this.restaurantID}.json`;
+     this.httpClient
+    .get(menuURL)
+    .subscribe((responseData) => {
+      this.menuCollection = responseData;
+      for (const key in responseData)
+        {
+          const menuItem = this.menuCollection[key];
+
+          this.items.push([
+            menuItem.itemName,
+            menuItem.itemPrice,
+            menuItem.itemDescription,
+            menuItem.itemTag,
+            menuItem.itemImage
+          ]);
+
+        }
+    })
      //this.getProductDetails();
-    });
+    };
   }
 
 
@@ -31,12 +70,3 @@ export class RestaurantPageComponent implements OnInit {
     // }
 
 
-
-  items = [
-    ["RestaurantName", "CuisineTags", "Delivery Fee", "Cooking Time"],
-    ["title1", "description1", "free", "100"],
-    ["title2", "desc2", "10", "150"],
-    ["title3", "desc3", "20", "200"],
-    ["title4", "desc4", "30", "250"],]
-
-}

@@ -52,7 +52,7 @@
 }
 
 .filter-options {
-  background-color: var(--background-color);
+  background-color: white;
   border-radius: 7px;
-
+  padding: 20px;
 }

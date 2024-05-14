@@ -30,7 +30,8 @@ export class RestaurantWizardComponent {
     restaurant_Tags: ['',Validators.required],
     restaurant_DeliveryFee:['',Validators.required],
     restaurant_DeliveryCities:['',Validators.required],
-    restaurant_CookingTime:['',Validators.required]
+    restaurant_CookingTime:['',Validators.required],
+    restaurant_Description:['',Validators.required],
   })
 
   onSubmit(): void{
@@ -43,6 +44,7 @@ export class RestaurantWizardComponent {
       rawForm.restaurant_DeliveryFee,
       rawForm.restaurant_DeliveryCities,
       rawForm.restaurant_CookingTime,
+      rawForm.restaurant_Description
     )
 
     this.toastr.success("Registration Successful.")
