@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RestaurantPageComponent } from './features/users/restaurant-page/restaurant-page.component';
 import { FilterPipe } from './filter.pipe';
 import { CheckoutPageComponent } from './features/users/checkout-page/checkout-page.component';
+import { RestaurantWizard2Component } from './restaurant-wizard2/restaurant-wizard2.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDF0whZg2MCLgnLJ1eTCrqIryGyN9DtKEs',
@@ -55,7 +56,7 @@ const firebaseConfig = {
     RestaurantPageComponent,
     FilterPipe,
     CheckoutPageComponent,
-
+    RestaurantWizard2Component,
   ],
 
   imports: [
