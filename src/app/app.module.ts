@@ -11,7 +11,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { UserHomeMidComponent } from './features/users/user-home-mid/user-home-mid.component';
 import { UserloginComponent } from './features/Auth/user/userlogin/userlogin.component';
-import { UserregisterComponent } from './features/Auth/user/userregister/userregister.component'
+import { UserregisterComponent } from './features/Auth/user/userregister/userregister.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RestaurantWizardComponent } from './features/restaurant_manager/restaurant-wizard/restaurant-wizard.component';
 import { DashboardComponent } from './features/restaurant_manager/dashboard/dashboard.component';
@@ -24,20 +24,17 @@ import { ProfileComponent } from './Shared/components/profile/profile.component'
 import { UserRestaurantListComponent } from './features/users/user-restaurant-list/user-restaurant-list.component';
 import { UserwizardComponent } from './features/Auth/user/userwizard/userwizard.component';
 import { HttpClientModule } from '@angular/common/http';
-import {RestaurantPageComponent} from "./features/users/restaurant-page/restaurant-page.component";
-
-
+import { RestaurantPageComponent } from './features/users/restaurant-page/restaurant-page.component';
+import { FilterPipe } from './filter.pipe';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDF0whZg2MCLgnLJ1eTCrqIryGyN9DtKEs",
-  authDomain: "meal-dash-baaed.firebaseapp.com",
-  projectId: "meal-dash-baaed",
-  storageBucket: "meal-dash-baaed.appspot.com",
-  messagingSenderId: "18721526332",
-  appId: "1:18721526332:web:0857e0aa78d9d5d3dfa939"
+  apiKey: 'AIzaSyDF0whZg2MCLgnLJ1eTCrqIryGyN9DtKEs',
+  authDomain: 'meal-dash-baaed.firebaseapp.com',
+  projectId: 'meal-dash-baaed',
+  storageBucket: 'meal-dash-baaed.appspot.com',
+  messagingSenderId: '18721526332',
+  appId: '1:18721526332:web:0857e0aa78d9d5d3dfa939',
 };
-
-
 
 @NgModule({
   declarations: [
@@ -55,8 +52,8 @@ const firebaseConfig = {
     UserRestaurantListComponent,
     UserwizardComponent,
     RestaurantPageComponent,
+    FilterPipe,
   ],
-
 
   imports: [
     BrowserModule,
@@ -69,13 +66,15 @@ const firebaseConfig = {
     provideDatabase(() => getDatabase()),
     ToastrModule.forRoot(), // For Toasts
     BrowserAnimationsModule, // Also For Toasts
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [importProvidersFrom([
-    provideFirebaseApp(() => initializeApp(firebaseConfig)),
-    provideAuth(() => getAuth()), // For User Authentication Service
-    provideFirestore(() => getFirestore()),
-  ])],
-  bootstrap: [AppComponent]
+  providers: [
+    importProvidersFrom([
+      provideFirebaseApp(() => initializeApp(firebaseConfig)),
+      provideAuth(() => getAuth()), // For User Authentication Service
+      provideFirestore(() => getFirestore()),
+    ]),
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
