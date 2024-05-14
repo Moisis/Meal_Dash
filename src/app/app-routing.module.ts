@@ -18,8 +18,6 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent }, // Route for the About page
   { path: 'profile', component: ProfileComponent }, // Route for the About page
   { path: 'uw', component: UserwizardComponent }, // Route for the Restaurant List
-  
-  { path: 'about', component: AboutComponent }, // Route for the About page\
   { path: 'r_dash', component: DashboardComponent }, // Route for the restaurant dashboard
   { path: 'r_res_list', component: UserRestaurantListComponent }, // Route for the Restaurant List
   

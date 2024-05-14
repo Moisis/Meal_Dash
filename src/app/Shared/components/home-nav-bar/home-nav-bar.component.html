@@ -12,6 +12,7 @@
         <li class="nav-item">
           <a routerLink="/about" class="nav-link fw-bold fs-5" href="#">ABOUT</a>
         </li>
+        
         <li *ngIf="this.authService.loggedinUserSignal() == null; else elseBlock">
           <a routerLink="/register" id="registerButton" class="nav-link fw-bold fs-5">REGISTER</a>
         </li>

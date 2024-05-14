@@ -15,7 +15,7 @@ export class UserloginComponent {
   constructor(private _router: Router){}
 
 
-  toastr =  inject(ToastrService);
+    toastr =  inject(ToastrService);
     fb = inject(FormBuilder)
 
     authService = inject(AuthService)
