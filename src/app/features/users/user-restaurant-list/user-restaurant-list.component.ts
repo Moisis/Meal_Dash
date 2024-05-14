@@ -14,6 +14,8 @@ export class UserRestaurantListComponent implements OnInit {
   restaurantCollection: any = {};
   items: any = [];
   searchText: any;
+  filterByPasta: any;
+  filterByBurgers: any;
   async ngOnInit(): Promise<void> {
     try {
       const responseData = await this.httpClient
@@ -36,6 +38,68 @@ export class UserRestaurantListComponent implements OnInit {
     } catch (error) {
       console.error('Error fetching restaurants:', error);
       // Handle errors appropriately, e.g., display an error message to the user
+    }
+  }
+  onFilterByPastaChange() {
+    if (this.filterByPasta) {
+      this.items = [];
+      for (const key in this.restaurantCollection) {
+        if (this.restaurantCollection.hasOwnProperty(key)) {
+          const restaurant = this.restaurantCollection[key];
+          if (restaurant.restaurantTags.includes('Pasta')) {
+            this.items.push([
+              restaurant.restaurant_Name,
+              restaurant.restaurantTags,
+              restaurant.delivery_Fee + ' EGP',
+              restaurant.cooking_Time + ' Minutes',
+            ]);
+          }
+        }
+      }
+    } else {
+      this.items = [];
+      for (const key in this.restaurantCollection) {
+        if (this.restaurantCollection.hasOwnProperty(key)) {
+          const restaurant = this.restaurantCollection[key];
+          this.items.push([
+            restaurant.restaurant_Name,
+            restaurant.restaurantTags,
+            restaurant.delivery_Fee + ' EGP',
+            restaurant.cooking_Time + ' Minutes',
+          ]);
+        }
+      }
+    }
+  }
+  onFilterByBurgersChange(){
+    if (this.filterByBurgers) {
+      this.items = [];
+      for (const key in this.restaurantCollection) {
+        if (this.restaurantCollection.hasOwnProperty(key)) {
+          const restaurant = this.restaurantCollection[key];
+          if (restaurant.restaurantTags.includes('Burger')) {
+            this.items.push([
+              restaurant.restaurant_Name,
+              restaurant.restaurantTags,
+              restaurant.delivery_Fee + ' EGP',
+              restaurant.cooking_Time + ' Minutes',
+            ]);
+          }
+        }
+      }
+    } else {
+      this.items = [];
+      for (const key in this.restaurantCollection) {
+        if (this.restaurantCollection.hasOwnProperty(key)) {
+          const restaurant = this.restaurantCollection[key];
+          this.items.push([
+            restaurant.restaurant_Name,
+            restaurant.restaurantTags,
+            restaurant.delivery_Fee + ' EGP',
+            restaurant.cooking_Time + ' Minutes',
+          ]);
+        }
+      }
     }
   }
 }
