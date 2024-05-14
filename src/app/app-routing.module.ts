@@ -9,6 +9,7 @@ import { ProfileComponent } from './Shared/components/profile/profile.component'
 import {DashboardComponent} from "./features/restaurant_manager/dashboard/dashboard.component";
 import {UserRestaurantListComponent} from "./features/users/user-restaurant-list/user-restaurant-list.component";
 import { UserwizardComponent } from './features/Auth/user/userwizard/userwizard.component';
+import {RestaurantPageComponent} from "./features/users/restaurant-page/restaurant-page.component";
 
 const routes: Routes = [
   { path: 'home', component: UserHomeComponent }, // Home page
@@ -18,9 +19,13 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent }, // Route for the About page
   { path: 'profile', component: ProfileComponent }, // Route for the About page
   { path: 'uw', component: UserwizardComponent }, // Route for the Restaurant List
+
+  { path: 'about', component: AboutComponent }, // Route for the About page\
   { path: 'r_dash', component: DashboardComponent }, // Route for the restaurant dashboard
   { path: 'r_res_list', component: UserRestaurantListComponent }, // Route for the Restaurant List
-  
+  { path: 'r_res_list/:id', component: RestaurantPageComponent}, // Route for the Restaurant Page
+
+
 
 
 

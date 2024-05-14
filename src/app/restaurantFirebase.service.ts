@@ -12,9 +12,9 @@ import { Observable, from } from "rxjs"
 
 export class RestaurantFirebaseService{
 
-    
+
   constructor(private _router: Router,private httpClient: HttpClient){}
-    
+
 
   firebaseAuth = inject(Auth)
 
@@ -29,7 +29,7 @@ export class RestaurantFirebaseService{
 
     const fullUrl = `https://meal-dash-baaed-default-rtdb.europe-west1.firebasedatabase.app/Restaurants/${this.firebaseAuth.currentUser?.uid}.json`
 
-        
+
             const restaurantToCreate = {
                 restaurant_Name: restaurant_Name,restaurantLogo: restaurant_Logo,restaurantTags:restaurant_Tags,
                 delivery_Cities: restaurant_DeliveryCities,
@@ -43,14 +43,12 @@ export class RestaurantFirebaseService{
 
 
 
-            
-
 
     }
 
 
 
-    
+
 
 
 }
