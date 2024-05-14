@@ -6,7 +6,7 @@ import { Component,OnInit } from '@angular/core';
   templateUrl: './user-restaurant-list.component.html',
   styleUrl: './user-restaurant-list.component.css'
 })
-export class UserRestaurantListComponent {
+export class UserRestaurantListComponent implements OnInit {
 
   constructor(private httpClient: HttpClient){}
 
@@ -34,8 +34,8 @@ restaurantCollection:any = {};
               }
             }
         });
-  
-        
+
+
       } catch (error) {
         console.error('Error fetching restaurants:', error);
         // Handle errors appropriately, e.g., display an error message to the user

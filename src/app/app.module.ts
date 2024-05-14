@@ -24,6 +24,7 @@ import { ProfileComponent } from './Shared/components/profile/profile.component'
 import { UserRestaurantListComponent } from './features/users/user-restaurant-list/user-restaurant-list.component';
 import { UserwizardComponent } from './features/Auth/user/userwizard/userwizard.component';
 import { HttpClientModule } from '@angular/common/http';
+import {RestaurantPageComponent} from "./features/users/restaurant-page/restaurant-page.component";
 
 
 
@@ -52,7 +53,8 @@ const firebaseConfig = {
     AboutComponent,
     ProfileComponent,
     UserRestaurantListComponent,
-    UserwizardComponent
+    UserwizardComponent,
+    RestaurantPageComponent,
   ],
 
 

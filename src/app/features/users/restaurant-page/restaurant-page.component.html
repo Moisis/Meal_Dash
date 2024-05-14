@@ -1,0 +1,89 @@
+<!--Header-->
+<app-home-nav-bar></app-home-nav-bar>
+
+
+
+<!--Body-->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="assets/egypt.png" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{productId}}</h5>
+            <p class="card-text">This is a wider card
+              This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Min. order: EGP 20.00</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="res_main">
+<div >
+<div class="filter-resturant-types">
+  <div class="filter-title fs-3 fw-bold">Category </div>
+  <div class="filter-options">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Restaurant Type 1
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+      <label class="form-check-label" for="flexCheckChecked">
+        Restaurant Type 2
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" >
+      <label class="form-check-label" for="flexCheckChecked">
+        Restaurant Type 2
+      </label>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
+
+
+  <div class="listings ms-5">
+    <div class="card mb-3" style="max-width: 700px;" *ngFor="let item of items">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="assets/egypt.png" class="img-fluid rounded-start" alt="res_logo"  width="100px">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{item[0]}}</h5>
+            <div class="description">{{item[1]}}</div>
+            <div class="info">
+              <div class="delivery">Delivery Fee: {{item[2]}}</div>
+              <div class="price">Cooking Time: emad {{item[3]}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+
+
+</div>
+
+
+
+
+<!--Footer-->
+<app-footer></app-footer>

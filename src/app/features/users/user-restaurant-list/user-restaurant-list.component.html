@@ -103,7 +103,7 @@
 
   <div class="listings ms-5">
   <div class="card mb-3" style="max-width: 700px;" *ngFor="let item of items" >
-    <div class="row g-0">
+    <div class="row g-0" [routerLink]="['/r_res_list/', item.restaurant_id]">
       <div class="col-md-4">
         <img src="assets/egypt.png" class="img-fluid rounded-start" alt="res_logo"  width="100px">
       </div>
