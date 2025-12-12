@@ -1,9 +1,0 @@
-.category-item {
-    cursor: pointer; /* Change cursor to pointer */
-    padding: 5px; /* Add padding for better readability */
-  }
-  
-  .category-item:hover {
-    background-color: #f0f0f0; /* Change background color on hover */
-  }
-  
